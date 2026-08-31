@@ -6,7 +6,7 @@
  * cada página HTML (index.html e produto.html).
  */
 window.GTM_ID = "GTM-53NDKLK9";      // Google Tag Manager
-window.GA_ID = "G-XXXXXXXXXX";      // Google Analytics 4 / gtag.js (ou AW-XXXXXXXXX para Google Ads)
+window.GA_ID = "G-RRVXPHC8N2";      // Google Analytics 4 / gtag.js (ou AW-XXXXXXXXX para Google Ads)
 
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
