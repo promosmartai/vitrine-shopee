@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produto</title>
+<meta name="description" content="Veja o produto e compre direto na Shopee.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="site-header">
+  <a href="index.html">Vitrine</a>
+</header>
+
+<main id="produto"></main>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script>
+  function svgShopee() {
+    return '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<path d="M6 2 4 6v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6l-2-4H6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>' +
+      '<path d="M4 6h16" stroke="currentColor" stroke-width="1.6"/>' +
+      '<path d="M8.5 10a3.5 3.5 0 0 0 7 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
+      '</svg>';
+  }
+
+  function midiaHTML(midia, nome) {
+    if (midia.tipo === "video") {
+      return '<video src="' + midia.src + '" autoplay muted loop playsinline controls aria-label="' + nome + '"></video>';
+    }
+    return '<img src="' + midia.src + '" alt="' + nome + '">';
+  }
+
+  function renderProduto() {
+    var container = document.getElementById("produto");
+    var params = new URLSearchParams(window.location.search);
+    var id = params.get("id");
+    var produtos = window.PRODUTOS || [];
+    var produto = produtos.find(function (p) { return p.id === id; });
+
+    if (!produto) {
+      container.innerHTML = '<p class="produto-erro">Produto não encontrado. <a href="index.html">Voltar para a vitrine</a>.</p>';
+      return;
+    }
+
+    document.title = produto.nome;
+
+    container.innerHTML =
+      '<div class="produto">' +
+        '<div class="produto-midia">' + midiaHTML(produto.midia, produto.nome) + '</div>' +
+        '<div class="produto-info">' +
+          '<h1 class="produto-nome">' + produto.nome + '</h1>' +
+          (produto.preco ? '<p class="produto-preco">' + produto.preco + '</p>' : '') +
+          '<a class="btn-shopee" href="' + produto.shopeeUrl + '" target="_blank" rel="noopener sponsored" id="btn-shopee">' +
+            svgShopee() + ' Ver na Shopee' +
+          '</a>' +
+        '</div>' +
+      '</div>';
+
+    document.getElementById("btn-shopee").addEventListener("click", function () {
+      trackShopeeClick(produto);
+    });
+  }
+
+  renderProduto();
+</script>
+</body>
+</html>
