@@ -14,31 +14,10 @@
  */
 window.PRODUTOS = [
   {
-    id: "fogareiro-portatil",
-    nome: "Fogareiro Portátil a Gás",
-    preco: "R$ 89,90",
+    id: "processador-triturador-manual",
+    nome: "Processador Triturador Manual de Alimentos Alho Legumes Frutas 500ml – 3 Lâminas Portátil",
+    preco: "R$ 15,99",
     midia: { tipo: "imagem", src: "assets/img/produto-1.jpg" },
-    shopeeUrl: "https://shopee.com.br/product/000000/000000001"
-  },
-  {
-    id: "lanterna-recarregavel",
-    nome: "Lanterna Tática Recarregável",
-    preco: "R$ 54,90",
-    midia: { tipo: "imagem", src: "assets/img/produto-2.jpg" },
-    shopeeUrl: "https://shopee.com.br/product/000000/000000002"
-  },
-  {
-    id: "faca-multiuso",
-    nome: "Faca Multiuso de Sobrevivência",
-    preco: "R$ 39,90",
-    midia: { tipo: "video", src: "assets/img/produto-3.mp4" },
-    shopeeUrl: "https://shopee.com.br/product/000000/000000003"
-  },
-  {
-    id: "mochila-tatica",
-    nome: "Mochila Tática 40L",
-    preco: "R$ 149,90",
-    midia: { tipo: "imagem", src: "assets/img/produto-4.jpg" },
-    shopeeUrl: "https://shopee.com.br/product/000000/000000004"
+    shopeeUrl: "https://shopee.com.br/product/1373441778/18699880918?exp_group=rollout&gads_t_sig=gqRjZGVrxHCFomtpsTE0MjUxOnRzc19zZGtfa2V5omt20QACpGFsZ2_SAAAAZKNkZWvAomN0xEAAAAAMCDZ1QISG3Y9eQ8yPVgAOiad7g2PqyaqkWO_9nGG8rv2GeSvTKVy0YH9Uq_tAMSkaB8ROm0FmD1_y4Fc6qmNpcGhlcnRleHTEmQAAAAzzwMGb36wC7qK8LvpDkz6MiRV-MnyZKkrIwFdgmPoCHDvbc40gRct7KBBa8V-qXEQnqt7NXAquUFZ1xKjvxDQ2SqZP6ETA2dO8JxKJ2Y1EpEUh_ORdSnGAF7QQ-aRpWXuv2yqD6TTcjcn_KksFUlvaY66Y5el-He9_-m3AvKh3-6jP6mjHzBM-Ni1GsUJOaf26ln01rg&lang=pt-BR&mmp_pid=an_18362921219&uls_trackid=56h9db7q01a3&utm_campaign=id_8IFX3lfJ3Ar&utm_content=----&utm_medium=affiliates&utm_source=an_18362921219&utm_term=fgiavpnarekg"
   }
 ];
