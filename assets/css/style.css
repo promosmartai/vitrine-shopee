@@ -1,202 +1,92 @@
-/* ---------------------------------------------------------
-   Tokens
---------------------------------------------------------- */
+/* Fonte e cor de marca. O resto do visual vem do Bootstrap. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
 :root {
-  --bg: #faf9f6;
-  --ink: #16181a;
-  --ink-soft: #55585c;
-  --line: #dcdad4;
-  --accent: #ee4d2d;   /* laranja Shopee — usado só na ação de sair para a Shopee */
-  --accent-ink: #ffffff;
-  --radius: 6px;
-  --font-display: "Sora", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --brand: #e4572e;      /* cor de destaque do site — usada só no botão e nos preços */
+  --brand-dark: #b23a1c;
+  --ink: #1c1c1c;
 }
-
-* { box-sizing: border-box; }
-
-html { -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0;
-  background: var(--bg);
+  font-family: 'Inter', sans-serif;
   color: var(--ink);
-  font-family: var(--font-body);
-  line-height: 1.5;
+  background-color: #f8f8f8;
 }
 
-a { color: inherit; }
+h1, h2, h3, .navbar-brand {
+  font-family: 'Poppins', sans-serif;
+}
 
-img, video { display: block; max-width: 100%; }
+/* Cabeçalho do site */
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 
-/* ---------------------------------------------------------
-   Botão "Ver na Shopee" — a única ação do site
---------------------------------------------------------- */
+/* Botão principal do site: "Ver na Shopee" */
 .btn-shopee {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  width: 100%;
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.btn-shopee:hover,
+.btn-shopee:focus {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: #fff;
+}
+
+/* Card de produto na vitrine */
+.produto-card {
   border: none;
-  border-radius: var(--radius);
-  background: var(--accent);
-  color: var(--accent-ink);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.9em 1em;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.12s ease, background 0.12s ease;
-}
-
-.btn-shopee:hover { background: #d8431f; }
-.btn-shopee:active { transform: scale(0.98); }
-
-.btn-shopee:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
-
-.btn-shopee svg { width: 1.1em; height: 1.1em; flex-shrink: 0; }
-
-/* ---------------------------------------------------------
-   Cabeçalho simples, comum às duas páginas
---------------------------------------------------------- */
-.site-header {
-  padding: 1.25rem clamp(1rem, 4vw, 2.5rem);
-  border-bottom: 1px solid var(--line);
-}
-
-.site-header a {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.05rem;
-  text-decoration: none;
-  letter-spacing: -0.01em;
-}
-
-/* ---------------------------------------------------------
-   Vitrine (index.html)
---------------------------------------------------------- */
-.vitrine {
-  display: grid;
-  gap: 1px;
-  background: var(--line);
-  border-top: 1px solid var(--line);
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-}
-
-.card {
-  background: var(--bg);
-  display: flex;
-  flex-direction: column;
-}
-
-.card-midia {
-  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
   overflow: hidden;
-  background: #efece5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
 
-.card-midia img,
-.card-midia video {
-  width: 100%;
-  height: 100%;
+.produto-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.produto-card .card-img-top {
+  aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-.card-info {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
+.produto-card video.card-img-top {
+  width: 100%;
+  height: auto;
 }
 
-.card-nome {
-  font-family: var(--font-display);
+.produto-card .card-title {
   font-size: 1rem;
   font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.01em;
 }
 
-.card-preco {
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-  margin: -0.4rem 0 0;
+.preco {
+  color: var(--brand-dark);
+  font-weight: 700;
 }
 
-.card-info .btn-shopee { margin-top: auto; font-size: 0.9rem; padding: 0.75em 1em; }
-
-.vitrine-vazia {
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--ink-soft);
-  font-family: var(--font-display);
-}
-
-/* ---------------------------------------------------------
-   Página de produto (produto.html)
---------------------------------------------------------- */
-.produto {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-@media (min-width: 800px) {
-  .produto {
-    grid-template-columns: 1.3fr 1fr;
-    align-items: center;
-    min-height: calc(100vh - 66px);
-  }
-}
-
-.produto-midia {
-  background: #efece5;
-  aspect-ratio: 1 / 1;
+/* Página de produto individual */
+.produto-midia-grande {
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
-@media (min-width: 800px) {
-  .produto-midia { aspect-ratio: auto; height: 100%; max-height: calc(100vh - 66px); }
-}
-
-.produto-midia img,
-.produto-midia video {
+.produto-midia-grande img,
+.produto-midia-grande video {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
 }
 
-.produto-info {
-  padding: clamp(1.5rem, 4vw, 3.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.produto-nome {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-.produto-preco {
-  font-size: 1.15rem;
-  color: var(--ink-soft);
-  margin: -0.75rem 0 0;
-}
-
-.produto-erro {
-  padding: 4rem 2rem;
-  text-align: center;
-  color: var(--ink-soft);
-  font-family: var(--font-display);
+.preco-grande {
+  font-size: 1.75rem;
 }
